@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var program = require('commander')
 var {prompt}  = require('inquirer')
 var {
@@ -61,6 +62,22 @@ program.command('find <name>')
 .description('Find a customer')
 .action(function(name){
     findCustomer(name)
+})
+
+
+program.command('list')
+.alias('l')
+.description('List all customers')
+.action(function(){
+    listAllCustomers()
+})
+
+
+program.command('delete <_id>')
+.alias('d')
+.description('Delete a customer')
+.action(function(_id){
+    removeCustomers(_id)
 })
 
 program.command('update <_id>').alias('u')
